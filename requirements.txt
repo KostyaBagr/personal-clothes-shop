@@ -1,0 +1,12 @@
+asgiref==3.6.0
+backports.zoneinfo==0.2.1
+Django==4.1.7
+django-admin-thumbnails==0.2.6
+django-debug-toolbar==4.0.0
+django-multiupload==0.6.1
+django-shopping-cart==0.1
+Pillow==9.4.0
+SHop==0.0.2
+six==1.16.0
+sqlparse==0.4.3
+tzdata==2022.7
