@@ -10,4 +10,4 @@
 
 запуск python manage.py runserver
 
-если не запустилась статика python manage.py collectstatic
+если не запустилась статика python manage.py collectstatic, a так же python manage.py collectstatic makemigrations 
