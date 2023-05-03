@@ -1,0 +1,62 @@
+{% extends 'shop/base.html'%}
+
+{% block main%}
+<section>
+        <div class="img-container">
+        <img src="{{ product.image.url}}" width="200" height="100"><br>
+        {% for i in get_all_photos%}
+                    <img src="{{ i.image.url }}" width="200" height="150" alt="">
+                </div>
+        {% endfor %}
+
+        <h1>Choose size for {{ product.name }}</h1>
+        <form method="POST" id="SizeForm">
+        {% csrf_token %}
+        <select name="size">
+            {% for size in sizes %}
+                <option value="{{ size.id }}">
+                    {% if selected_size and selected_size.id == size.id %}
+                    selected
+                    {% endif %}{{ size.get_size_name_display }}</option>
+            {% endfor %}
+        </select>
+    <button type="submit">Select size</button>
+</form>
+
+
+
+
+
+        <h1>Кол-во товара на складе</h1>
+        {{products.product_quantity.count}}
+        <h2>{{product.name}}</h2>
+        <p>{{product.text}}</p>
+        <h3>{{product.price}}</h3>
+
+       <div class="input-group my-3" style="width:30%;">
+            <input type="number" value="1" class="" id="productQty"/>
+
+            <div class="input-group-append">
+                <input type="hidden" class="product-id" value="{{product.id}}">
+                <input type="hidden" class="product-title" value="{{product.name}}">
+                <button type="button" id="addToCartbtn">Add to Cart</button>
+            </div>
+        </div>
+
+
+</section>
+<script>
+     $("#addToCartbtn").on('click', function(){
+                var _qty=$("#productQty").val();
+                var _productId=$(".product-id").val();
+                var _productName=$(".product-title").val();
+
+                console.log(_qty,_productId,_productName);
+
+
+    });
+</script>
+{% endblock%}
+
+
+

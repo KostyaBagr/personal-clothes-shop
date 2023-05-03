@@ -1,0 +1,22 @@
+{% extends 'shop/base.html'%}
+
+{% block main%}
+
+
+<a href="{% url 'mycart:cart_detail' %}"><button>Корзина</button></a>
+{% for p in products%}
+
+      <ul class="products">
+        <li>
+
+
+            <img src="{{ p.image.url }}">
+          <h3>{{p.name}}</h3>
+          <p>{{p.price}}</p>
+            <p><a href="{{p.get_absolute_url}}"><button>Подробнее</button></a></p>
+        </li>
+      </ul>
+ {%endfor%}
+{% endblock%}
+
+

@@ -1,0 +1,6 @@
+{% extends 'shop/base.html'%}
+{% block main %}
+{% for i in cart%}
+{{i.product.name}}
+{% endfor%}
+{% endblock %}
